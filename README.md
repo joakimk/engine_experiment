@@ -4,7 +4,7 @@
 
 I want to see if it's practial to build a large rails app composed of multiple engines.
 
-I'm looking to build a dependency graph within the application so that you only load the engines you need. A worker process should not load an admin interface, a test of the cms should not load the background workers.
+I'm looking to build a dependency graph within the application so that you only load the engines you need. A worker process should not load an admin interface, a test of the cms should not load background workers.
 
 The main goals are:
 * Faster turnaround time for new features. It should be like you're working on smaller rails apps... because, we'll, you do.
