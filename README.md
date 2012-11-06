@@ -35,6 +35,6 @@ Run tests in an engine:
 
     cd engines/customers; rake
 
-Run tests in downstream engines (for the base engine, this is all engines):
+Run tests in downstream engines (all engines depend on base, so all tests will be run):
 
     cd engines/base; rake spec:downstream
