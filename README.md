@@ -1,4 +1,4 @@
-*Work in progress* *Lab project* *Prototype*
+**Work in progress** | **Lab project** | **Prototype**
 
 Engine experiment
 
