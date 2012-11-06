@@ -1,6 +1,6 @@
 **Work in progress** | **Lab project**
 
-Engine experiment
+## Engine experiment
 
 I want to see if it's practial to build a large rails app composed of multiple engines.
 
@@ -25,7 +25,7 @@ Possible dependency tree:
     admin: admin views, etc.
     public: public site.
 
-Usage:
+## Usage
 
 Run the host app:
 
@@ -35,6 +35,6 @@ Run tests in an engine:
 
     cd engines/customers; rake
 
-Run tests in downstream engines:
+Run tests in downstream engines (for the base engine, this is all engines):
 
-    cd engines/base; rake
+    cd engines/base; rake spec:downstream
