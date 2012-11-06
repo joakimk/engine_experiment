@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#
+# Command to run the specs the correct way when triggered from the turbux vim plugin.
+
+spec_file = ARGV.first
+
+spec_file =~ /engines\/(.*?)\/(.*)/
+engine_name = $1
+spec_path = $2
+
+command = "cd engines/#{engine_name} && rspec --color --tty #{spec_path}"
+exit(1) unless system(command)
