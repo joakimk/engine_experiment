@@ -42,6 +42,13 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
     cd engines/base; rake spec:downstream
 
+## Thoughts on refactoring an app into this pattern
+
+* Introduce a base engine, make it load before the app and extract the most common code.
+  - I think it's important to keep this engine very slim (to load fast) and limit it to code that very rarely changes (when it changes you'll have to re-run all downstream tests).
+* Introduce more specific engines.
+  - Try to put slow-loading or slow-to-test code as far down into the dependency tree as possible.
+
 ## Todo
 
 * More sub-engines, one for each part of the dependency tree.
