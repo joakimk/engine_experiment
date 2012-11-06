@@ -1,23 +1,18 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require 'rails/all'
 
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
+Bundler.require
+
+engine_deps = File.readlines(File.join(Dir.pwd, "engine.deps")).map(&:chomp)
+
+engine_deps.each do |engine|
+  require "../#{engine}/engine"
 end
 
-require_relative "../engines/base/engine.rb"
+puts "Loaded engines: #{engine_deps.join(', ')}."
 
-module EngineExperiment
+module Dummy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -47,9 +42,6 @@ module EngineExperiment
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Enable escaping HTML in JSON.
-    config.active_support.escape_html_entities_in_json = true
-
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
@@ -66,9 +58,6 @@ module EngineExperiment
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    # The most important part of this is that the engines are loaded in order of dependency. Not
-    # after the main rails app. The engines should not be dependent on the host app.
-    config.railties_order = [ Base::Engine, :main_app, :all ]
   end
 end
+
