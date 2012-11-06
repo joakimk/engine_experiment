@@ -13,7 +13,7 @@ The main goals are:
 Future benefits:
 * Because it's are clear how the dependencies go, you can split the application into many applications. Say applications for CMS, CRM, Statistics, ...
 
-The lab app is a e-commerce application (I've actually never built one, but it's a common enough domain I think).
+The example app is an e-commerce application (I've actually never built one, but it's a common enough domain I think).
 
 Possible dependency tree:
 
