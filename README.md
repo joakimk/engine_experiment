@@ -17,7 +17,8 @@ The example app is an e-commerce application (I've actually never built one, but
 
 Possible dependency tree:
 
-    base -> products, admin            -> cms
+    base -> admin                      -> cms
+    base -> products, admin            -> inventory
     base -> customers, admin           -> crm
     base -> customers, products, admin -> statistics
     base -> customers, products        -> public
