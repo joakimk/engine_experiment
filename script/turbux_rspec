@@ -8,5 +8,5 @@ spec_file =~ /engines\/(.*?)\/(.*)/
 engine_name = $1
 spec_path = $2
 
-command = "cd engines/#{engine_name} && rspec --color --tty #{spec_path}"
+command = "cd engines/#{engine_name} && echo \"Running in engines/#{engine_name}:\" && rspec --color --tty #{spec_path}"
 exit(1) unless system(command)
