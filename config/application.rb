@@ -16,6 +16,7 @@ if defined?(Bundler)
 end
 
 require_relative "../engines/base/engine.rb"
+require_relative "../engines/customers/engine.rb"
 
 module EngineExperiment
   class Application < Rails::Application
@@ -69,6 +70,6 @@ module EngineExperiment
 
     # The most important part of this is that the engines are loaded in order of dependency. Not
     # after the main rails app. The engines should not be dependent on the host app.
-    config.railties_order = [ Base::Engine, :main_app, :all ]
+    config.railties_order = [ Base::Engine, Customers::Engine, :main_app, :all ]
   end
 end

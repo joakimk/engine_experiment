@@ -17,10 +17,24 @@ The lab app is a e-commerce application (I've actually never built one, but it's
 
 Possible dependency tree:
 
-    base -> products, admin        -> cms
-    base -> users, admin           -> crm
-    base -> users, products, admin -> statistics
-    base -> users, products        -> public
+    base -> products, admin            -> cms
+    base -> customers, admin           -> crm
+    base -> customers, products, admin -> statistics
+    base -> customers, products        -> public
 
     admin: admin views, etc.
     public: public site.
+
+Usage:
+
+Run the host app:
+
+    rake
+
+Run tests in an engine:
+
+    cd engines/customers; rake
+
+Run tests in downstream engines:
+
+    cd engines/base; rake
