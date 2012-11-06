@@ -46,6 +46,7 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 * Locales.
 * Routes / Controllers / Views / Layouts.
 * no-rails tests.
+* Simple test setup while using guard and spork.
 * CI setup, only run the tests that are needed. Parallel tests, etc.
 * Cleanup, simplification.
 * Evaluate if the overhead is too much.
