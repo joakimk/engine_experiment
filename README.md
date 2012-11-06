@@ -11,7 +11,9 @@ The main goals are:
 * Less memory usage in production. Only load the parts you need.
 
 Future benefits:
-* Because it's are clear how the dependencies go, you can split the application into many applications. Say applications for CMS, CRM, Statistics, ...
+* Be able to split an application into many small ones.
+
+## Example app
 
 The example app is an e-commerce application (I've actually never built one, but it's a common enough domain I think).
 
