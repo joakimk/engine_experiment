@@ -62,3 +62,9 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 * Cleanup, simplification.
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
+
+## Related
+
+* http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
+  - Basically the same idea. I don't use namespaces (modules) here as I intend this to be something that is easy to refactor into as a first step without changing the code at all.
+  - Cool idea with setting migration paths.
