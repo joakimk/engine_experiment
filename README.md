@@ -38,3 +38,15 @@ Run tests in an engine:
 Run tests in downstream engines (all engines depend on base, so all tests will be run):
 
     cd engines/base; rake spec:downstream
+
+## Todo
+
+* More sub-engines, one for each part of the dependency tree.
+* Assets.
+* Locales.
+* Routes / Controllers / Views / Layouts.
+* no-rails tests.
+* CI setup, only run the tests that are needed. Parallel tests, etc.
+* Cleanup, simplification.
+* Evaluate if the overhead is too much.
+* Anything I haven't thought of yet :)
