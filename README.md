@@ -51,6 +51,7 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
 ## Todo
 
+* If possible, make the main app bundle include all gems. Maybe by defining deps in the gemfiles instead.
 * More sub-engines, one for each part of the dependency tree.
 * Assets.
 * Locales.
