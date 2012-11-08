@@ -3,6 +3,8 @@ PATH
   specs:
     base (1.0)
       rails (~> 3.2.8)
+      sqlite3
+      unicorn
 
 GEM
   remote: http://rubygems.org/
@@ -141,6 +143,4 @@ DEPENDENCIES
   jquery-rails
   rspec-rails
   sass-rails (~> 3.2.3)
-  sqlite3
   uglifier (>= 1.0.3)
-  unicorn

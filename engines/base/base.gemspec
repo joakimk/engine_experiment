@@ -12,4 +12,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{controllers,models,helpers,views,jobs,lib}/**/*"]
 
   s.add_dependency "rails", "~> 3.2.8"
+  s.add_dependency "unicorn"
+  s.add_dependency "sqlite3"
 end
