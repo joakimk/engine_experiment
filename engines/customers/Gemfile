@@ -1,5 +1,0 @@
-source "http://rubygems.org"
-
-gemspec
-gem "base", path: "../base"
-eval(File.read(File.join(File.dirname(__FILE__), '../base/common_gems.rb')))

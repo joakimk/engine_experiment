@@ -12,3 +12,7 @@ end
 gem 'jquery-rails'
 
 gem 'base', path: 'engines/base'
+
+group :development do
+  gem "rspec-rails"
+end
