@@ -51,7 +51,6 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
 ## Todo
 
-* More sub-engines, one for each part of the dependency tree.
 * Assets.
 * Locales.
 * Routes / Controllers / Views / Layouts.
