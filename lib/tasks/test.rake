@@ -3,4 +3,7 @@ task :default => :environment do
   puts
   puts "Running the host rails app including all engines..."
   puts Customers::Customer.new(name: 'hello').name
+  puts
+  puts "Running all tests..."
+  system("cd engines/base; rake spec spec:downstream")
 end
