@@ -4,7 +4,7 @@
 
 I want to see if it's practical to build a large rails app composed of multiple engines.
 
-I'm looking to build a dependency graph within the application to be able to only load the required engines. A worker process should not load an admin interface, a test of the cms should not load background workers.
+I'm building a dependency graph within the application to be able to only load the required engines. A worker process should not load an admin interface, a test of the cms should not load background workers.
 
 The main goals are:
 * Faster turnaround time for new features. It should be like you're working on smaller rails apps... because, well, you do.
@@ -17,20 +17,13 @@ Future benefits:
 
 The example app is an e-commerce application (I've actually never built one, but it's a common enough domain I think).
 
-Possible dependency tree:
-
-    base -> admin                      -> cms
-    base -> products, admin            -> inventory
-    base -> customers, admin           -> crm
-    base -> customers, products, admin -> statistics
-    base -> customers, products        -> public
-
-    admin: admin views, etc.
-    public: public site.
-
 ## Usage
 
-Run the host app:
+See the dependency trees:
+
+    rake deps
+
+Run the host app and all the specs:
 
     rake
 
@@ -42,9 +35,7 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
     cd engines/base; rake spec:downstream
 
-See the dependency trees:
-
-    rake deps
+When using turbux in vim you can set it to run rspec with "script/turbux_rspec" and it will run the spec within the correct engine.
 
 ## Thoughts on refactoring an app into this pattern
 
