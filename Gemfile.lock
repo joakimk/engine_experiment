@@ -1,4 +1,9 @@
 PATH
+  remote: engines/admin
+  specs:
+    admin (1.0)
+
+PATH
   remote: engines/base
   specs:
     base (1.0)
@@ -163,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  admin!
   base!
   capybara
   coffee-rails (~> 3.2.1)

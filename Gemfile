@@ -11,7 +11,7 @@ end
 
 gem 'jquery-rails'
 
-[ "base", "customers", "public" ].each do |engine|
+[ "base", "customers", "public", "admin" ].each do |engine|
   gem engine, path: "engines/#{engine}", require: "#{File.dirname(__FILE__)}/engines/#{engine}/engine"
 end
 
