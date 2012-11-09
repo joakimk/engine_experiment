@@ -1,0 +1,2 @@
+#!/usr/bin/env rake
+require "../base/common_tasks.rb"

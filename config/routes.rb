@@ -1,4 +1,6 @@
 EngineExperiment::Application.routes.draw do
+  mount Public::Engine, :at => "/"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
