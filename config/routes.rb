@@ -1,6 +1,7 @@
 EngineExperiment::Application.routes.draw do
   mount Public::Engine, :at => "/"
   mount Admin::Engine, :at => "/admin"
+  mount Cms::Engine, :at => "/admin"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

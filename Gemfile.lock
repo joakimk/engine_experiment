@@ -12,6 +12,11 @@ PATH
       unicorn
 
 PATH
+  remote: engines/cms
+  specs:
+    cms (1.0)
+
+PATH
   remote: engines/customers
   specs:
     customers (1.0)
@@ -171,6 +176,7 @@ DEPENDENCIES
   admin!
   base!
   capybara
+  cms!
   coffee-rails (~> 3.2.1)
   customers!
   jquery-rails
