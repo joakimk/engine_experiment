@@ -42,6 +42,10 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
     cd engines/base; rake spec:downstream
 
+See the dependency trees:
+
+    rake deps
+
 ## Thoughts on refactoring an app into this pattern
 
 * Introduce a base engine, make it load before the app and extract the most common code.
