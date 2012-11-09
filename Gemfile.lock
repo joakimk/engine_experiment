@@ -6,6 +6,11 @@ PATH
       sqlite3
       unicorn
 
+PATH
+  remote: engines/customers
+  specs:
+    customers (1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -133,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   base!
   coffee-rails (~> 3.2.1)
+  customers!
   jquery-rails
   rails (= 3.2.8)
   rspec-rails

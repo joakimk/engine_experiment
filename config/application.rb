@@ -15,9 +15,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-require_relative "../engines/base/engine.rb"
-require_relative "../engines/customers/engine.rb"
-
 module EngineExperiment
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

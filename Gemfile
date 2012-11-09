@@ -11,7 +11,9 @@ end
 
 gem 'jquery-rails'
 
-gem 'base', path: 'engines/base'
+[ "base", "customers" ].each do |engine|
+  gem engine, path: "engines/#{engine}", require: "#{File.dirname(__FILE__)}/engines/#{engine}/engine"
+end
 
 group :development do
   gem "rspec-rails"
