@@ -66,5 +66,5 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 ## Related
 
 * http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
-  - Basically the same idea. I don't use namespaces (modules) here as I intend this to be something that is easy to refactor into as a first step without changing the code at all.
+  - Basically the same idea but depending on the host app instead of being loaded before it.
   - Cool idea with setting migration paths.
