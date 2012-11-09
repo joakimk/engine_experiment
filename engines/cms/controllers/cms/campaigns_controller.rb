@@ -1,5 +1,5 @@
 module Cms
-  class CampaignsController < ActionController::Base
+  class CampaignsController < Admin::BaseController
     def index
     end
   end

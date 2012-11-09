@@ -54,9 +54,9 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 * DRY gemspecs
 * Assets.
 * Locales.
-* Routes / Controllers / Views / Layouts.
-* Shared base controllers, authentication, ?
+* Authentication and shared spec helper for that.
 * Cross-linking, path helpers where parts don't depend on eachother (admin -> public)
+  - Possibly by having sub controller register links, dynamically generate link sections, etc.
 * Simple test setup while using guard and spork.
 * Be able to work in development mode in the browser for a specific engine? (still slow to load all of them in a large app)
 * CI setup, only run the tests that are needed. Parallel tests, etc.
