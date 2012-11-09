@@ -17,6 +17,11 @@ PATH
     cms (1.0)
 
 PATH
+  remote: engines/content
+  specs:
+    content (1.0)
+
+PATH
   remote: engines/customers
   specs:
     customers (1.0)
@@ -178,6 +183,7 @@ DEPENDENCIES
   capybara
   cms!
   coffee-rails (~> 3.2.1)
+  content!
   customers!
   jquery-rails
   public!

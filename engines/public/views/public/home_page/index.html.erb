@@ -1,2 +1,6 @@
 Success
 <%= @customer.name %>
+
+<% @campaigns.each do |campaign| %>
+  <%= campaign.title %>
+<% end %>

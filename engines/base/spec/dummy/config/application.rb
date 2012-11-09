@@ -2,8 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-Bundler.require
-
 engine_deps = File.readlines(File.join(Dir.pwd, "engine.deps")).map(&:chomp)
 
 engine_deps.each do |engine|

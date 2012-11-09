@@ -55,6 +55,7 @@ See the dependency trees:
 
 ## Todo
 
+* How to handle campaigns within the cms that needs to be possible to display in public without having public depend on cms (and in turn admin).
 * DRY gemspecs
 * Assets.
 * Locales.
