@@ -35,7 +35,7 @@ Run tests in downstream engines (all engines depend on base, so all tests will b
 
     cd engines/base; rake spec:downstream
 
-When using turbux in vim you can set it to run rspec with "script/turbux_rspec" and it will run the spec within the correct engine.
+When using turbux in vim you can set it to run rspec with **script/turbux_rspec** and it will run the spec within the correct engine.
 
 ## Thoughts on refactoring an app into this pattern
 
