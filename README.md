@@ -31,9 +31,9 @@ Run tests in an engine:
 
     cd engines/customers; rake
 
-Run tests in downstream engines (all engines depend on base, so all tests will be run):
+Run tests in downstream engines:
 
-    cd engines/base; rake spec:downstream
+    cd engines/customers; rake spec:downstream
 
 Start a web server with only the public site (and it's dependencies):
 
