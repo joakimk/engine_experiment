@@ -13,11 +13,11 @@ The main goals are:
 Future benefits:
 * Be able to split an application into many small ones.
 
-## Example app
+### Example app
 
 The example app is an e-commerce application (I've actually never built one, but it's a common enough domain I think).
 
-## Usage
+### Usage
 
 Setup:
 
@@ -49,7 +49,7 @@ Start a web server with only the public site (and it's dependencies):
 
 When using turbux in vim you can set it to run rspec with **script/turbux_rspec** and it will run the spec within the correct engine.
 
-## Thoughts on refactoring an app into this pattern
+### Thoughts on refactoring an app into this pattern
 
 * Introduce a base engine, make it load before the app and extract the most common code.
   - I think it's important to keep this engine very slim (to load fast) and limit it to code that very rarely changes (when it changes you'll have to re-run all downstream tests).
@@ -57,11 +57,11 @@ When using turbux in vim you can set it to run rspec with **script/turbux_rspec*
   - Try to put slow-loading or slow-to-test code as far down into the dependency tree as possible.
 
 
-## Why not extract into gems right away?
+### Why not extract into gems right away?
 
 Before you can make a gem it needs to be an isolated bit of functionality. Using engines you can start to isolate parts of an app. When a part of an app is isolated you can make it into a gem, but you don't need to. There are several advantages to having the engines within the same repository. This includes having only one thing to deploy, no versioning, CI can run faster by only running the tests that apply to a given change, etc.
 
-## Todo
+### Todo
 
 * DRY gemspecs
 * Assets.
@@ -77,7 +77,7 @@ Before you can make a gem it needs to be an isolated bit of functionality. Using
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
 
-## Related
+### Related
 
 * http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
   - Basically the same idea but depending on the host app instead of being loaded before it.
