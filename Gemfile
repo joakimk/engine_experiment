@@ -11,8 +11,9 @@ end
 
 gem 'jquery-rails'
 
-[ "base", "customers", "content", "public", "admin", "cms" ].each do |engine|
-  gem engine, path: "engines/#{engine}", require: "#{File.dirname(__FILE__)}/engines/#{engine}/engine"
+$all_known_engines = [ "base", "customers", "content", "public", "admin", "cms" ]
+$all_known_engines.each do |engine|
+  gem engine, path: "engines/#{engine}", require: false
 end
 
 group :development do

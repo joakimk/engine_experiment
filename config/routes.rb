@@ -1,7 +1,7 @@
 EngineExperiment::Application.routes.draw do
-  mount Public::Engine, :at => "/"
-  mount Admin::Engine, :at => "/admin"
-  mount Cms::Engine, :at => "/admin"
+  mount Public::Engine, :at => "/"     if EngineLoader.loaded?(:public)
+  mount Admin::Engine, :at => "/admin" if EngineLoader.loaded?(:admin)
+  mount Cms::Engine, :at => "/admin"   if EngineLoader.loaded?(:cms)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -15,6 +15,12 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require_relative "../lib/engine_loader"
+requested_engines = (ENV['ENGINES'] && ENV['ENGINES'].split(',')) || $all_known_engines
+EngineLoader.load(requested_engines)
+
+puts "Loaded engines: #{EngineLoader.loaded_engine_names.join(', ')}."
+
 module EngineExperiment
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -67,6 +73,6 @@ module EngineExperiment
 
     # The most important part of this is that the engines are loaded in order of dependency. Not
     # after the main rails app. The engines should not be dependent on the host app.
-    config.railties_order = [ Base::Engine, Customers::Engine, :main_app, :all ]
+    config.railties_order = [ EngineLoader.loaded_engines, :main_app, :all ].flatten
   end
 end
