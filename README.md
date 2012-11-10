@@ -50,6 +50,7 @@ When using turbux in vim you can set it to run rspec with **script/turbux_rspec*
 
 ## Todo
 
+* Ensure code reloading works in dev.
 * DRY gemspecs
 * Assets.
 * Locales.
