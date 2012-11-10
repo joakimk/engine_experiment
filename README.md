@@ -39,6 +39,10 @@ Run tests in downstream engines:
 
     cd engines/customers; rake spec:downstream
 
+Run tests from the root of the app:
+
+    rake spec:content
+
 Start a web server with only the public site (and it's dependencies):
 
     ENGINES=public rails s
