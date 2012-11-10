@@ -18,7 +18,7 @@ end
 require_relative "../lib/engine_loader"
 EngineLoader.load
 
-puts "Loaded engines: #{EngineLoader.loaded_engine_names.join(', ')}."
+puts "Loaded engines: #{EngineLoader.loaded_engines.join(', ')}."
 
 module EngineExperiment
   class Application < Rails::Application
@@ -72,6 +72,6 @@ module EngineExperiment
 
     # The most important part of this is that the engines are loaded in order of dependency. Not
     # after the main rails app. The engines should not be dependent on the host app.
-    config.railties_order = [ EngineLoader.loaded_engines, :main_app, :all ].flatten
+    config.railties_order = [ EngineLoader.loaded_engine_classes, :main_app, :all ].flatten
   end
 end
