@@ -11,8 +11,9 @@ end
 
 gem 'jquery-rails'
 
-$all_known_engines = [ "base", "customers", "content", "public", "admin", "cms" ]
-$all_known_engines.each do |engine|
+require "#{File.dirname(__FILE__)}/lib/engine_loader"
+
+EngineLoader.known_engines.each do |engine|
   gem engine, path: "engines/#{engine}", require: false
 end
 

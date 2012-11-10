@@ -1,7 +1,8 @@
 class EngineLoader
-  def self.load(requested_engines)
+  def self.load
     raise("Can't load engines twice") if @loaded_engine_names
 
+    requested_engines = (ENV['ENGINES'] && ENV['ENGINES'].split(',')) || known_engines
     engines_to_load = Set.new
 
     requested_engines.each do |engine|
@@ -15,6 +16,10 @@ class EngineLoader
     end
 
     @loaded_engine_names = engines_to_load.to_a
+  end
+
+  def self.known_engines
+    @known_engines ||= YAML.load_file(File.join(File.dirname(__FILE__), "../config/known_engines.yml"))
   end
 
   def self.loaded_engine_names

@@ -16,8 +16,7 @@ if defined?(Bundler)
 end
 
 require_relative "../lib/engine_loader"
-requested_engines = (ENV['ENGINES'] && ENV['ENGINES'].split(',')) || $all_known_engines
-EngineLoader.load(requested_engines)
+EngineLoader.load
 
 puts "Loaded engines: #{EngineLoader.loaded_engine_names.join(', ')}."
 
