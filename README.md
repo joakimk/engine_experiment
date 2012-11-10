@@ -56,9 +56,13 @@ When using turbux in vim you can set it to run rspec with **script/turbux_rspec*
 * Introduce more specific engines.
   - Try to put slow-loading or slow-to-test code as far down into the dependency tree as possible.
 
+
+## Why not extract into gems right away?
+
+Before you can make a gem it needs to be an isolated bit of functionality. Using engines you can start to isolate parts of an app. When a part of an app is isolated you can make it into a gem, but you don't need to. There are several advantages to having the engines within the same repository. This includes having only one thing to deploy, no versioning, CI can run faster by only running the tests that apply to a given change, etc.
+
 ## Todo
 
-* Write a bit about "why don't you just make gems for all of it right away" (why that's not practical and how this enables you to do that in the future).
 * DRY gemspecs
 * Assets.
 * Locales.
