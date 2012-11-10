@@ -19,6 +19,10 @@ The example app is an e-commerce application (I've actually never built one, but
 
 ## Usage
 
+Setup:
+
+    script/bootstrap
+
 See the dependency trees:
 
     rake deps
