@@ -63,7 +63,6 @@ Before you can make a gem it needs to be an isolated bit of functionality. Using
 
 ### Todo
 
-* DRY gemspecs
 * Assets.
 * Locales.
 * Authentication and shared spec helper for that.
