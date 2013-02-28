@@ -8,6 +8,7 @@ module Base
       paths["app/views"] << "views"
       paths["app/helpers"] << "helpers"
       paths["app/models"] << "models"
+      paths["app/assets"] << "assets"
       paths["config/routes"] = "routes.rb"
       paths["config/initializers"] << "initializers"
       paths["config/locales"] << "locales"
