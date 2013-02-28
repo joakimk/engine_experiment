@@ -2,7 +2,6 @@ class EngineLoader
   def self.load
     raise("Can't load engines twice") if @loaded_engines
 
-    requested_engines = (ENV['ENGINES'] && ENV['ENGINES'].split(',')) || known_engines
     engines_to_load = Set.new
 
     requested_engines.each do |engine|
@@ -16,6 +15,14 @@ class EngineLoader
     end
 
     @loaded_engines = engines_to_load.to_a
+  end
+
+  def self.requested_engines
+    if Dir.pwd.include?("engines/")
+      [ Dir.pwd.split('/').last ]
+    else
+      (ENV['ENGINES'] && ENV['ENGINES'].split(',')) || known_engines
+    end
   end
 
   def self.known_engines
