@@ -7,4 +7,13 @@ namespace :spec do
       system("cd engines/#{engine} && rake spec")
     end
   end
+
+  desc "Run all specs for all engines at once (in CI this would probably be different test jobs)"
+  task :ci do
+    threads = []
+    EngineLoader.known_engines.each do |engine|
+      threads << Thread.new { system("cd engines/#{engine} && rake spec") }
+    end
+    threads.each(&:join)
+  end
 end
