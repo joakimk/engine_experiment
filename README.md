@@ -63,6 +63,8 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 
 ### Todo
 
+* Assets: check that pre-processing and pre compilation works.
+* Migrations: run migrations within each engine?
 * Authentication and shared spec helper for that.
 * Cross-linking, path helpers where parts don't depend on eachother (admin -> public)
   - Possibly by having sub controller register links, dynamically generate link sections, etc.
