@@ -80,3 +80,6 @@ Before you can make a gem it needs to be an isolated bit of functionality. Using
 * http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
   - Basically the same idea but depending on the host app instead of being loaded before it.
   - Cool idea with setting migration paths.
+
+* Almost exactly the same idea applied to a long project where they found it worked:
+  - [Rocky Mountain Ruby 2013 How I architected my big Rails app for success! by Ben Smith](http://www.youtube.com/watch?v=uDaBtqEYNBo&noredirect=1)
