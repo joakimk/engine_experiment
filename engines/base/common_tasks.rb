@@ -4,15 +4,37 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
+require "colorize"
+
 APP_RAKEFILE = File.expand_path("../../Rakefile", __FILE__)
 
 require "rspec/core/rake_task"
 
-RSpec::Core::RakeTask.new(:spec)
-
-task :default => :spec
+task :default => "spec:all"
 
 namespace :spec do
+  task :all => [ "spec:local", "spacer", "spec:upstream" ] do
+  end
+
+  task :local => [ "spec:unit", "spacer", "spec" ] do
+  end
+
+  task :spacer do
+    puts
+  end
+
+  task :unit do
+    if Dir["unit/*_spec.rb"].any?
+      puts "Running unit tests..."
+      system("rspec unit/*_spec.rb") || exit(1)
+    end
+  end
+
+  task :spec do
+    puts "Running integrated tests..."
+    system("rspec", "--color", "--tty", *Dir["spec/**/*_spec.rb"]) || exit(1)
+  end
+
   task :upstream do
     upstream_engines = []
     current_engine = Dir.pwd.split("/").last
@@ -31,12 +53,10 @@ namespace :spec do
       end
     end
 
-    puts "Upstream engines: #{upstream_engines.join(', ')}"
-    puts
-
     upstream_engines.each do |engine|
-      puts "Running #{engine} tests."
-      system("cd ../#{engine} && rake") || exit(1)
+      puts
+      puts "#{engine.capitalize}:".blue
+      system("cd ../#{engine} && rake spec:local") || exit(1)
       puts
     end
   end

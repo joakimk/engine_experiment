@@ -12,7 +12,7 @@ module Base
       paths["config/routes"] = "routes.rb"
       paths["config/initializers"] << "initializers"
       paths["config/locales"] << "locales"
-      config.eager_load_paths.reject! { |path| path.include?("spec") }
+      config.eager_load_paths.reject! { |path| path.include?("spec") || path.include?("unit") }
       config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*/*.{rb,yml}').to_s]
     end
   end

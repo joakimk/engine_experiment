@@ -2,9 +2,9 @@ require_relative "../../../lib/engine_loader"
 
 namespace :spec do
   EngineLoader.known_engines.each do |engine|
-    desc "Run all specs for engines/#{engine}"
+    desc "Run all specs for engines/#{engine} (and it's upstream deps)"
     task engine do
-      system("cd engines/#{engine} && rake spec")
+      system("cd engines/#{engine} && rake")
     end
   end
 
@@ -12,7 +12,7 @@ namespace :spec do
   task :ci do
     threads = []
     EngineLoader.known_engines.each do |engine|
-      threads << Thread.new { system("cd engines/#{engine} && rake spec") }
+      threads << Thread.new { system("cd engines/#{engine} && rake spec:local") }
     end
     threads.each(&:join)
   end

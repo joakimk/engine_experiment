@@ -67,7 +67,6 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 * Cross-linking, path helpers where parts don't depend on eachother (admin -> public)
   - Possibly by having sub controller register links, dynamically generate link sections, etc.
 * Simple test setup while using guard and spork.
-* no-rails tests.
 * Cleanup, simplification.
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
