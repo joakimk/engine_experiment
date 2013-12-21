@@ -6,5 +6,6 @@ describe "The homepage" do
     visit "/"
     page.should have_content("Half price this week!")
     page.should have_content("TEST")
+    page.should have_content("Test locale works!")
   end
 end
