@@ -14,7 +14,7 @@ task :default => :spec
 
 namespace :spec do
   task :upstream do
-    downstream_engines = []
+    upstream_engines = []
     current_engine = Dir.pwd.split("/").last
 
     Dir.entries("..").each do |engine|
@@ -25,16 +25,16 @@ namespace :spec do
           if engine == current_engine
             current_engine_found = true
           elsif current_engine_found
-            downstream_engines << engine unless downstream_engines.include?(engine)
+            upstream_engines << engine unless upstream_engines.include?(engine)
           end
         end
       end
     end
 
-    puts "Upstream engines: #{downstream_engines.join(', ')}"
+    puts "Upstream engines: #{upstream_engines.join(', ')}"
     puts
 
-    downstream_engines.each do |engine|
+    upstream_engines.each do |engine|
       puts "Running #{engine} tests."
       system("cd ../#{engine} && rake") || exit(1)
       puts

@@ -5,5 +5,5 @@ task :default => :environment do
   puts Customers::Customer.new(name: 'hello').name
   puts
   puts "Running all tests..."
-  system("cd engines/base; rake spec spec:downstream")
+  system("cd engines/base; rake spec spec:upstream")
 end
