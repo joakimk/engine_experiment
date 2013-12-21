@@ -83,3 +83,12 @@ Before you can make a gem it needs to be an isolated bit of functionality. Using
 
 * Almost exactly the same idea applied to a long project where they found it worked:
   - [Rocky Mountain Ruby 2013 How I architected my big Rails app for success! by Ben Smith](http://www.youtube.com/watch?v=uDaBtqEYNBo&noredirect=1)
+  - Ideas
+    - "git whatchanged" to figure out what tests to run
+    - mapper classes somewhat like minimapper to discourage direct use of AR
+    - models in their own engines as they are shared deps but controllers often are not
+    - engine for admin assets
+    - avoiding circular deps by using mapper methods like project_mapper.find_all_for_user_id(5) instead of user.projects
+    - namespaced tables (social_net_, content_)
+    - only change one table per migration (with the idea that you could move all migrations belonging to a single table to another engine if need be).
+      - seems to me that this could be accomplished by loading schema and I tend to avoid depending on old migrations working, in fact I tend to remove them after a while.
