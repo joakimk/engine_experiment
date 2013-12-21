@@ -1,1 +1,1 @@
-rvm ruby-1.9.3-p0-patched@engine_experiment --create
+rvm ruby-1.9.3-p194-falcon@engine_experiment --create

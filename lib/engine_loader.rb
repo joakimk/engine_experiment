@@ -1,3 +1,5 @@
+require "yaml"
+
 class EngineLoader
   def self.load
     raise("Can't load engines twice") if @loaded_engines

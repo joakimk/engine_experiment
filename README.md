@@ -35,9 +35,9 @@ Run tests in an engine:
 
     cd engines/customers; rake
 
-Run tests in downstream engines:
+Run tests in upstream engines:
 
-    cd engines/customers; rake spec:downstream
+    cd engines/customers; rake spec:upstream
 
 Run tests from the root of the app:
 
@@ -52,7 +52,7 @@ When using turbux in vim you can set it to run rspec with **script/turbux_rspec*
 ### Thoughts on refactoring an app into this pattern
 
 * Introduce a base engine, make it load before the app and extract the most common code.
-  - I think it's important to keep this engine very slim (to load fast) and limit it to code that very rarely changes (when it changes you'll have to re-run all downstream tests).
+  - I think it's important to keep this engine very slim (to load fast) and limit it to code that very rarely changes (when it changes you'll have to re-run all upstream tests).
 * Introduce more specific engines.
   - Try to put slow-loading or slow-to-test code as far down into the dependency tree as possible.
 

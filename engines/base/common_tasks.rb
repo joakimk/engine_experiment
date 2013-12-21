@@ -13,7 +13,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 namespace :spec do
-  task :downstream do
+  task :upstream do
     downstream_engines = []
     current_engine = Dir.pwd.split("/").last
 
@@ -31,7 +31,7 @@ namespace :spec do
       end
     end
 
-    puts "Downstream engines: #{downstream_engines.join(', ')}"
+    puts "Upstream engines: #{downstream_engines.join(', ')}"
     puts
 
     downstream_engines.each do |engine|
