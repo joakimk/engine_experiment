@@ -1,4 +1,4 @@
-require "../base/engine"
+require_relative "../base/engine"
 
 module Public
   class Engine < ::Rails::Engine

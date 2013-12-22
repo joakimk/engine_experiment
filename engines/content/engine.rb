@@ -1,4 +1,4 @@
-require "../base/engine"
+require_relative "../base/engine"
 
 module Content
   class Engine < ::Rails::Engine

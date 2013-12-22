@@ -1,4 +1,4 @@
-require "../base/engine"
+require_relative "../base/engine"
 
 module Customers
   class Engine < ::Rails::Engine
