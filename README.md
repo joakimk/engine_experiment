@@ -75,10 +75,6 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 
 ### Related
 
-* http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
-  - Basically the same idea but depending on the host app instead of being loaded before it.
-  - Cool idea with setting migration paths.
-
 * Almost exactly the same idea applied to a long project where they found it worked:
   - [Rocky Mountain Ruby 2013 How I architected my big Rails app for success! by Ben Smith](http://www.youtube.com/watch?v=uDaBtqEYNBo&noredirect=1)
   - Ideas
@@ -91,3 +87,12 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
     - namespaced tables (social_net_, content_)
     - only change one table per migration (with the idea that you could move all migrations belonging to a single table to another engine if need be).
       - seems to me that this could be accomplished by loading schema and I tend to avoid depending on old migrations working, in fact I tend to remove them after a while.
+
+* [GoGaRuCo 2013 - SOA without the tears](http://www.youtube.com/watch?v=HV3BH2K5BQ8&noredirect=1)
+  - Same idea, but loads engines after the app. Can have hidden deps.
+  - They solve dependencies using injected lambdas but does not hide the fact behind nice apis for some reason.
+    - Seems simpler to me to solve this by having a dependency own things like translations shared between engines.
+
+* http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
+  - Basically the same idea but depending on the host app instead of being loaded before it.
+  - Cool idea with setting migration paths.
