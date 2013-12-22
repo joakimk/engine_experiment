@@ -73,7 +73,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
 
-### Related
+### Other people using engines with similar goals in mind
 
 * Almost exactly the same idea applied to a long project where they found it worked:
   - [Rocky Mountain Ruby 2013 How I architected my big Rails app for success! by Ben Smith](http://www.youtube.com/watch?v=uDaBtqEYNBo&noredirect=1)
