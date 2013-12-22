@@ -5,4 +5,7 @@ define_gem "base" do |s|
   s.add_dependency "unicorn"
   s.add_dependency "sqlite3"
   s.add_dependency "colorize"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "capybara"
 end

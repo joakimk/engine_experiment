@@ -5,9 +5,6 @@ rescue LoadError
 end
 
 require "colorize"
-
-APP_RAKEFILE = File.expand_path("../../Rakefile", __FILE__)
-
 require "rspec/core/rake_task"
 
 task :default => "spec:all"
@@ -56,7 +53,7 @@ namespace :spec do
     upstream_engines.each do |engine|
       puts
       puts "#{engine.capitalize}:".blue
-      system("cd ../#{engine} && rake spec:local") || exit(1)
+      system("cd ../#{engine} && BUNDLE_GEMFILE='' rake spec:local") || exit(1)
       puts
     end
   end

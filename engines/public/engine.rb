@@ -1,3 +1,5 @@
+require "../base/engine"
+
 module Public
   class Engine < ::Rails::Engine
     include Base::FlatEngine

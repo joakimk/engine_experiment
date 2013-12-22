@@ -18,7 +18,7 @@ end
 require_relative "../lib/engine_loader"
 EngineLoader.load
 
-puts "Loaded engines: #{EngineLoader.loaded_engines.join(', ')}."
+puts "Loaded engines in main app: #{EngineLoader.loaded_engines.join(', ')}."
 
 module EngineExperiment
   class Application < Rails::Application

@@ -1,5 +1,5 @@
 ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../../../config/environment.rb",  __FILE__)
+require File.expand_path('../../../base/spec/dummy/app',  __FILE__)
 require 'rspec/rails'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }

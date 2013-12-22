@@ -11,12 +11,6 @@ end
 
 gem 'jquery-rails'
 
-require "#{File.dirname(__FILE__)}/lib/engine_loader"
-
-EngineLoader.known_engines.each do |engine|
-  gem engine, path: "engines/#{engine}", require: false
-end
-
 group :development do
   gem "rspec-rails"
   gem "capybara"

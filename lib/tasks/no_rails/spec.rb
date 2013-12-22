@@ -4,7 +4,7 @@ namespace :spec do
   EngineLoader.known_engines.each do |engine|
     desc "Run all specs for engines/#{engine} (and it's upstream deps)"
     task engine do
-      system("cd engines/#{engine} && rake")
+      system("cd engines/#{engine} && BUNDLE_GEMFILE='' rake")
     end
   end
 
@@ -12,7 +12,7 @@ namespace :spec do
   task :ci do
     threads = []
     EngineLoader.known_engines.each do |engine|
-      threads << Thread.new { system("cd engines/#{engine} && rake spec:local") }
+      threads << Thread.new { system("cd engines/#{engine} && BUNDLE_GEMFILE='' rake spec:local") }
     end
     threads.each(&:join)
   end
