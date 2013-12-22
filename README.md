@@ -63,14 +63,17 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 
 ### Todo
 
+* Dummy app logging is in the wrong place (spec/log)
+* Engines duplicate dependency lists in engine.deps and Gemfile
+* Make it simpler to require common tools? rspec, capybara, etc
 * Assets: check that pre-processing and pre compilation works.
+* How to use spork with this? Is it even needed?
+* Cleanup, simplification.
 * Migrations: run migrations within each engine?
+* Table prefixes?
 * Authentication and shared spec helper for that.
 * Cross-linking, path helpers where parts don't depend on eachother (admin -> public)
   - Possibly by having sub controller register links, dynamically generate link sections, etc.
-* Simple test setup while using guard and spork.
-* Cleanup, simplification.
-* Namespace the shared code so it could potentially be gemified, but probably keep it inside the first app that uses this pattern until it's more mature.
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
 
