@@ -86,6 +86,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
     - mapper classes somewhat like minimapper to discourage direct use of AR
     - models in their own engines as they are shared deps but controllers often are not
     - engine for admin assets
+    - having a template engine and simple scripts to create new engines from it, less friction
     - avoiding circular deps by using mapper methods like project_mapper.find_all_for_user_id(5) instead of user.projects
     - namespaced tables (social_net_, content_)
     - only change one table per migration (with the idea that you could move all migrations belonging to a single table to another engine if need be).
