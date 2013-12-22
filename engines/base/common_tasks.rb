@@ -10,14 +10,11 @@ require "rspec/core/rake_task"
 task :default => "spec:all"
 
 namespace :spec do
-  task :all => [ "spec:local", "spacer", "spec:upstream" ] do
-  end
+  task :all => [ "spec:local", "spec:upstream" ]
+  task :local => [ "header", "spec:unit", "spec" ]
 
-  task :local => [ "spec:unit", "spacer", "spec" ] do
-  end
-
-  task :spacer do
-    puts
+  task :header do
+    puts "#{engine_name}:".blue
   end
 
   task :unit do
@@ -33,28 +30,40 @@ namespace :spec do
   end
 
   task :upstream do
-    upstream_engines = []
-    current_engine = Dir.pwd.split("/").last
+    engines = find_engines
+    @seen_engines = []
+    run_upstream_specs(engines, engine_name)
+  end
 
-    Dir.entries("..").each do |engine|
+  def engine_name
+    Dir.pwd.split("/").last
+  end
+
+  def find_engines
+    Dir.entries("..").each_with_object({}) { |engine, h|
       deps_file = "../#{engine}/engine.deps"
-      if File.exists?(deps_file)
-        current_engine_found = false
-        File.readlines(deps_file).map { |line| line.chomp }.each do |engine|
-          if engine == current_engine
-            current_engine_found = true
-          elsif current_engine_found
-            upstream_engines << engine unless upstream_engines.include?(engine)
-          end
-        end
+      next unless File.exists?(deps_file)
+      h[engine] = File.readlines(deps_file).map(&:chomp)
+    }
+  end
+
+  def run_upstream_specs(engines, current_engine)
+    engines.each do |engine, deps|
+      if deps.include?(current_engine) && engine != current_engine &&
+        !@seen_engines.include?(engine)
+        puts
+        run_specs(engine)
+        run_upstream_specs(engines, engine)
+        @seen_engines << engine
       end
     end
+  end
 
-    upstream_engines.each do |engine|
-      puts
-      puts "#{engine.capitalize}:".blue
-      system("cd ../#{engine} && BUNDLE_GEMFILE='' rake spec:local") || exit(1)
-      puts
-    end
+  def run_specs(engine)
+    run("cd ../#{engine} && BUNDLE_GEMFILE='' rake spec:local")
+  end
+
+  def run(command)
+    system(command) || exit(1)
   end
 end
