@@ -70,6 +70,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
   - Possibly by having sub controller register links, dynamically generate link sections, etc.
 * Simple test setup while using guard and spork.
 * Cleanup, simplification.
+* Namespace the shared code so it could potentially be gemified, but probably keep it inside the first app that uses this pattern until it's more mature.
 * Evaluate if the overhead is too much.
 * Anything I haven't thought of yet :)
 
