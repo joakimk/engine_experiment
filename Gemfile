@@ -10,7 +10,7 @@ group :assets do
 end
 
 load "lib/engine_loader.rb"
-EngineLoader.requested_engines.each do |engine|
+EngineLoader.known_engines.each do |engine|
   gem engine, path: "engines/#{engine}", require: false
 end
 
