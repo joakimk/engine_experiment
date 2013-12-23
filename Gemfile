@@ -9,6 +9,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+load "lib/engine_loader.rb"
+EngineLoader.requested_engines.each do |engine|
+  gem engine, path: "engines/#{engine}", require: false
+end
+
 gem 'jquery-rails'
 
 group :development do

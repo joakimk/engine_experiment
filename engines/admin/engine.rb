@@ -1,3 +1,7 @@
+require "haml"
+require "sass"
+require "slim"
+
 module Admin
   class Engine < ::Rails::Engine
     include Base::FlatEngine
