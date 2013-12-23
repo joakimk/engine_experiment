@@ -1,4 +1,5 @@
 require "yaml"
+require_relative "engine_deps"
 
 class EngineLoader
   def self.load
@@ -7,9 +8,8 @@ class EngineLoader
     engines_to_load = Set.new
 
     requested_engines.each do |engine|
-      deps_file_path = File.join(File.dirname(__FILE__), "../engines/#{engine}/engine.deps")
-      engine_deps = File.readlines(deps_file_path).map(&:chomp)
-      engines_to_load += engine_deps
+      engine_deps = EngineDeps.for(engine)
+      engines_to_load += (engine_deps + [ engine ])
     end
 
     engines_to_load.each do |engine|

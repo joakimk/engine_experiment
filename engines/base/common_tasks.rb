@@ -6,6 +6,7 @@ end
 
 require "colorize"
 require "rspec/core/rake_task"
+require_relative "../../lib/engine_deps"
 
 task :default => "spec:all"
 
@@ -41,9 +42,8 @@ namespace :spec do
 
   def find_engines
     Dir.entries("..").each_with_object({}) { |engine, h|
-      deps_file = "../#{engine}/engine.deps"
-      next unless File.exists?(deps_file)
-      h[engine] = File.readlines(deps_file).map(&:chomp)
+      next if engine.include?(".")
+      h[engine] = EngineDeps.for(engine)
     }
   end
 

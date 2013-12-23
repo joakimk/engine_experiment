@@ -64,7 +64,6 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 ### Todo
 
 * Dummy app logging is in the wrong place (spec/log)
-* Engines duplicate dependency lists in engine.deps and Gemfile
 * Make it simpler to require common tools? rspec, capybara, etc
 * Assets: check that pre-processing and pre compilation works.
 * How to use spork with this? Is it even needed?

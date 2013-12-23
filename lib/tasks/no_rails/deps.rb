@@ -1,10 +1,11 @@
+require_relative "../../engine_deps"
+
 desc "Show engine dependency trees"
 task :deps do
   # Fetch all deps
   trees = []
   `ls engines`.chomp.split.each do |engine|
-    deps = File.read("engines/#{engine}/engine.deps").split
-    trees << deps
+    trees << EngineDeps.for(engine) + [ engine ]
   end
 
   # Find the deepest trees
