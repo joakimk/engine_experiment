@@ -63,6 +63,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 
 ### Todo
 
+* See if using ENGINES= in productin mode throws up an error because it changes Gemfile.lock.
 * Dummy app logging is in the wrong place (spec/log)
 * Engines duplicate dependency lists in engine.deps and Gemfile
 * Make it simpler to require common tools? rspec, capybara, etc
