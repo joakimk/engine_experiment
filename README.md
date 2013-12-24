@@ -15,7 +15,7 @@ Future benefits:
 
 ### Example app
 
-The example app is an e-commerce application (I've actually never built one, but it's a common enough domain I think).
+The example app is an e-commerce application (I've actually never built one, but it's a common enough domain).
 
 ### Usage
 
@@ -49,17 +49,13 @@ Create a new engine:
 
 When using turbux in vim you can set it to run rspec with **script/turbux_rspec** and it will run the spec within the correct engine.
 
-### Thoughts on refactoring an app into this pattern
+### Refactoring an existing app into this pattern
 
-* Introduce a base engine, make it load before the app and extract the most common code.
-  - I think it's important to keep this engine very slim (to load fast) and limit it to code that very rarely changes (when it changes you'll have to re-run all upstream tests).
-* Introduce more specific engines.
-  - Try to put slow-loading or slow-to-test code as far up the dependency tree as possible (in the leaf nodes).
+I'm working on a branch in one of our apps at work where I've used this code. What I did was to copy `lib/engine_deps.rb`, `lib/engine_loader.rb`, `lib/tasks/no_rails/engine.rb`, `engines/base` and `engines/template` to the application and hook it up in `Gemfile` and `config/application.rb`.
 
+The model specs I've extracted so far actually run faster without spork in the engine than they did with spork in the main app.
 
-### Why not extract into gems or separate apps right away?
-
-Before you can make a separate thing it needs to be an isolated bit of functionality. Using engines you can start to isolate parts of an app. When a part of an app is isolated you can make it into a gem or a separate app, but you don't need to. There are several advantages to having the engines within the same repository. This includes having only one thing to deploy, no versioning, CI can run faster by only running the tests that apply to a given change, etc.
+I imagine a good way to go about refactoring an app into this pattern would be to take one slice at a time. Extract models into a domain engine (like Content) and controllers and views into a web engine (e.g. AdminContent or PublicContent).
 
 ### Todo
 
@@ -74,8 +70,6 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 * Authentication and shared spec helper for that.
 * Cross-linking, path helpers where parts don't depend on eachother (admin -> public)
   - Possibly by having sub controller register links, dynamically generate link sections, etc.
-* Evaluate if the overhead is too much.
-* Anything I haven't thought of yet :)
 
 ### Other people using engines with similar goals in mind
 
@@ -85,6 +79,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
     - "git whatchanged" to figure out what tests to run
     - mapper classes somewhat like minimapper to discourage direct use of AR
     - models in their own engines as they are shared deps but controllers often are not
+      - web engines at the "controller level" and domain engines at the "domain level" mirroring the layers in MVC
     - engine for admin assets
     - having a template engine and simple scripts to create new engines from it, less friction
     - avoiding circular deps by using mapper methods like project_mapper.find_all_for_user_id(5) instead of user.projects
@@ -100,3 +95,27 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 * http://confreaks.com/videos/1263-rockymtnruby2012-wrangling-large-rails-codebases
   - Basically the same idea but depending on the host app instead of being loaded before it.
   - Cool idea with setting migration paths.
+
+## Credits and license
+
+By Joakim Kolsjö under the MIT license:
+
+>  Copyright (c) 2013 Joakim Kolsjö
+>
+>  Permission is hereby granted, free of charge, to any person obtaining a copy
+>  of this software and associated documentation files (the "Software"), to deal
+>  in the Software without restriction, including without limitation the rights
+>  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+>  copies of the Software, and to permit persons to whom the Software is
+>  furnished to do so, subject to the following conditions:
+>
+>  The above copyright notice and this permission notice shall be included in
+>  all copies or substantial portions of the Software.
+>
+>  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+>  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+>  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+>  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+>  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+>  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+>  THE SOFTWARE.
