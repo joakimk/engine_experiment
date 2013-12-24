@@ -31,13 +31,9 @@ Run the host app and all the specs:
 
     rake
 
-Run tests in an engine:
+Run tests in an engine and upstream engines:
 
     cd engines/customers; rake
-
-Run tests in upstream engines:
-
-    cd engines/customers; rake spec:upstream
 
 Run tests from the root of the app:
 
@@ -46,6 +42,10 @@ Run tests from the root of the app:
 Start a web server with only the public site (and it's dependencies):
 
     ENGINES=public rails s
+
+Create a new engine:
+
+    rake create_engine[lab]
 
 When using turbux in vim you can set it to run rspec with **script/turbux_rspec** and it will run the spec within the correct engine.
 
