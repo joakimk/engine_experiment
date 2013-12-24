@@ -59,6 +59,7 @@ I imagine a good way to go about refactoring an app into this pattern would be t
 
 ### Todo
 
+* See if it's possible to use the dummy app in development-mode too, would make changes much faster in a large app.
 * Dummy app logging is in the wrong place (spec/log)
 * Figure out how versions are handled? Is it bad that an engine might use v2 of a gem in tests but v1 when used with the main app?
 * Make it simpler to require common tools? rspec, capybara, etc
