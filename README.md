@@ -15,7 +15,7 @@ Future benefits:
 
 ### Example app
 
-The example app is an e-commerce application (I've actually never built one, but it's a common enough domain).
+The example app is an e-commerce application.
 
 ### Usage
 
