@@ -64,6 +64,7 @@ Before you can make a separate thing it needs to be an isolated bit of functiona
 ### Todo
 
 * Dummy app logging is in the wrong place (spec/log)
+* Figure out how versions are handled? Is it bad that an engine might use v2 of a gem in tests but v1 when used with the main app?
 * Make it simpler to require common tools? rspec, capybara, etc
 * Assets: check that pre-processing and pre compilation works.
 * How to use spork with this? Is it even needed?
