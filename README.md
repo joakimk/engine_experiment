@@ -53,13 +53,16 @@ When using turbux in vim you can set it to run rspec with **script/turbux_rspec*
 
 I'm working on a branch in one of our apps at work where I've used this code. What I did was to copy `lib/engine_deps.rb`, `lib/engine_loader.rb`, `lib/tasks/no_rails/engine.rb`, `engines/base` and `engines/template` to the application and hook it up in `Gemfile` and `config/application.rb`.
 
-The model specs I've extracted so far actually run faster without spork in the engine than they did with spork in the main app.
+The specs I've extracted so far actually run faster without spork in the engine than they did with spork in the main app.
 
 I imagine a good way to go about refactoring an app into this pattern would be to take one slice at a time. Extract models into a domain engine (like Content) and controllers and views into a web engine (e.g. AdminContent or PublicContent).
 
 ### Todo
 
 * See if it's possible to use the dummy app in development-mode too, would make changes much faster in a large app.
+* Import rake spec:changed
+* Don't require downstream engines to depend on all upstream ones
+* How to handle gems with git refs?
 * Dummy app logging is in the wrong place (spec/log)
 * Figure out how versions are handled? Is it bad that an engine might use v2 of a gem in tests but v1 when used with the main app?
 * Make it simpler to require common tools? rspec, capybara, etc
