@@ -64,6 +64,7 @@ I imagine a good way to go about refactoring an app into this pattern would be t
 ### Todo
 
 * See if it's possible to use the dummy app in development-mode too, would make changes much faster in a large app.
+* See if the dummy app can boot faster. There are quite a few things that can be done to rails boot.
 * Import rake spec:changed
 * Don't require downstream engines to depend on all upstream ones
 * How to handle gems with git refs?
