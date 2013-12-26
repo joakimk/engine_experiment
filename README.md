@@ -27,7 +27,7 @@ See the dependency trees:
 
     rake deps
 
-Run the specs for the code that has changed and the code that depends on the changed code.
+Run the specs for the code that has changed and the code that depends on the changed code. But **nothing else**. This will probably be what you want to run most of the time.
 
     rake spec:changes
 
