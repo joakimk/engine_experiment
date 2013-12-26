@@ -13,7 +13,7 @@ namespace :spec do
     changed_files_since_last_push = `git whatchanged --oneline -n $(git status|grep ahead|awk '{ print $9 }') 2> /dev/null|grep ':'|awk '{ print $6 }'`.chomp.split("\n")
     uncommitted_changed_files = `git diff|grep '+++'`.split("\n").
       reject { |path| path.include?("lib/tasks/no_rails") || path.include?("uncommitted_changed_files") }.
-      map { |line| line.split('b/').last.chomp }
+      map { |line| line.split('+ b/').last.chomp }
 
     all_changed_files = changed_files_since_last_push + uncommitted_changed_files
 
