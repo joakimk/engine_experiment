@@ -40,5 +40,9 @@ task :create_engine, [ :name ] do |_, args|
   run("cd #{target_path} && export BUNDLE_GEMFILE='' && bundle 1> /dev/null && rake")
 
   puts
+  puts "Adding engine to config/known_engines.yml".blue
+  run("echo '- #{engine}' >> config/known_engines.yml")
+
+  puts
   puts "Engine ready (#{target_path})"
 end
