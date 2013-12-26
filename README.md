@@ -100,6 +100,10 @@ I imagine a good way to go about refactoring an app into this pattern would be t
   - Basically the same idea but depending on the host app instead of being loaded before it.
   - Cool idea with setting migration paths.
 
+* [http://www.youtube.com/watch?v=Mfogs7jxd5Y](Nickel City Ruby 2013 Smash the Monolith: Refactoring into SOAs by Corey Ehmke)
+  - More general ideas about application architecture and breaking apart monolithic applications. Also mentions engines as a way to do that.
+
+
 ## Credits and license
 
 By Joakim Kolsjö under the MIT license:
