@@ -27,6 +27,10 @@ See the dependency trees:
 
     rake deps
 
+Run the specs for the code that has changed and the code that depends on the changed code.
+
+    rake spec:changes
+
 Run the host app and all the specs:
 
     rake
