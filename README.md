@@ -65,7 +65,8 @@ I imagine a good way to go about refactoring an app into this pattern would be t
 
 * See if it's possible to use the dummy app in development-mode too, would make changes much faster in a large app.
 * See if the dummy app can boot faster. There are quite a few things that can be done to rails boot.
-* Import rake spec:changed
+* Support for parallel spec runs is probably a good idea. When changing "base", it will take way too long time to run all the tests.
+  - Some test pain is good though as it forces you to move things out of base.
 * Don't require downstream engines to depend on all upstream ones
 * How to handle gems with git refs?
 * Dummy app logging is in the wrong place (spec/log)
