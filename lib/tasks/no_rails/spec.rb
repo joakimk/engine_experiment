@@ -15,7 +15,9 @@ namespace :spec do
       reject { |path| path.include?("lib/tasks/no_rails") || path.include?("uncommitted_changed_files") }.
       map { |line| line.split('+ b/').last.chomp }
 
-    all_changed_files = changed_files_since_last_push + uncommitted_changed_files
+    untracked_files = `git status --porcelain|grep '??'|awk '{ print $2 }'`.split("\n")
+
+    all_changed_files = changed_files_since_last_push + uncommitted_changed_files + untracked_files
 
     changed_engines = []
     all_changed_files.each do |file|
