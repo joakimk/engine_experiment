@@ -38,7 +38,7 @@ namespace :spec do
     end
 
     if changed_engines.none?
-      puts "Nothing to do. Engine code isn't changed."
+      puts "Nothing to do. Engine code has not changed."
     end
   end
 
