@@ -36,6 +36,10 @@ namespace :spec do
 
       system("cd engines/#{engine} && BUNDLE_GEMFILE='' rake") || exit(1)
     end
+
+    if changed_engines.none?
+      puts "Nothing to do. Engine code isn't changed."
+    end
   end
 
   desc "Run all specs for all engines at once (in CI this would probably be different test jobs)"
