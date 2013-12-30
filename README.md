@@ -23,25 +23,21 @@ Setup:
 
     script/bootstrap
 
-See the dependency trees:
-
-    rake deps
-
-Run the specs for the code that has changed and the code that depends on the changed code. But **nothing else**. This will probably be what you want to run most of the time.
-
-    rake spec:changes
-
-Run the host app and all the specs:
+Run specs for code that has changed:
 
     rake
+
+Run all the specs:
+
+    rake spec:ci
+
+Run tests in an engine:
+
+    cd engines/customers; rake spec:local
 
 Run tests in an engine and upstream engines:
 
     cd engines/customers; rake
-
-Run tests from the root of the app:
-
-    rake spec:content
 
 Start a web server with only the public site (and it's dependencies):
 
@@ -50,6 +46,10 @@ Start a web server with only the public site (and it's dependencies):
 Create a new engine:
 
     rake create_engine[lab]
+
+See the dependency trees:
+
+    rake deps
 
 When using turbux in vim you can set it to run rspec with **script/turbux_rspec** and it will run the spec within the correct engine.
 
